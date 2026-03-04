@@ -66,6 +66,7 @@
       "com.apple.sound.beep.volume" = 0.5;
 
       "com.apple.trackpad.scaling" = 3.0;
+      "com.apple.mouse.scaling" = 3.0;
 
       NSWindowShouldDragOnGesture = true;
 
