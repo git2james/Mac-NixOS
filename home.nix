@@ -20,11 +20,6 @@
         export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
       fi
 
-      # Clean minimal git-aware prompt
-      autoload -Uz vcs_info
-      precmd() { vcs_info }
-      zstyle ':vcs_info:git:*' formats ' (%b)'
-      setopt PROMPT_SUBST
       PROMPT=' %F{cyan}%~%f > '
     '';
 
@@ -51,17 +46,11 @@
         email = "4472496+git2james@users.noreply.github.com";
       };
 
-      init = {
-        defaultBranch = "main";
-      };
+      init.defaultBranch = "main";
 
-      pull = {
-        rebase = true;
-      };
+      pull.rebase = true;
 
-      push = {
-        autoSetupRemote = true;
-      };
+      push.autoSetupRemote = true;
     };
   };
 
@@ -74,8 +63,7 @@
     DOCKUTIL="/opt/homebrew/bin/dockutil"
 
     add_if_missing() {
-      APP_NAME="$(basename "$1" .app)"
-      if ! "$DOCKUTIL" --list | grep -q "$APP_NAME"; then
+      if ! "$DOCKUTIL" --list | grep -q "$1"; then
         "$DOCKUTIL" --add "$1" --no-restart
       fi
     }
@@ -85,11 +73,10 @@
     add_if_missing "/Applications/Microsoft Excel.app"
     add_if_missing "/Applications/Microsoft Word.app"
 
-    if ! "$DOCKUTIL" --list | grep -q "Applications"; then
-      "$DOCKUTIL" --add /Applications --view grid --display folder --no-restart
+    if ! "$DOCKUTIL" --list | grep -q "/Applications"; then
+      "$DOCKUTIL" --add "/Applications" --view grid --display folder --no-restart
     fi
 
     /usr/bin/killall Dock || true
   '';
-
 }
