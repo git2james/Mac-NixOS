@@ -82,7 +82,7 @@
       "$DOCKUTIL" --add /Applications --view grid --display folder --no-restart
     fi
 
-    killall Dock || true
+    /usr/bin/killall Dock || true
   '';
 
 }
