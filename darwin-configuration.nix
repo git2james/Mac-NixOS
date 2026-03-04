@@ -4,8 +4,6 @@
 
   system.primaryUser = "James";
 
-  services.nix-daemon.enable = true;
-
   ids.gids.nixbld = 350;
 
   nix.settings.experimental-features = [
@@ -30,7 +28,6 @@
 
   system.defaults.finder.AppleShowAllExtensions = true;
   system.defaults.NSGlobalDomain.AppleShowAllExtensions = true;
-#  system.defaults.dock.AppleShowAllExtensions = true;
 
   homebrew = {
     enable = true;
