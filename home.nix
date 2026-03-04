@@ -5,6 +5,8 @@
 
   programs.home-manager.enable = true;
 
+  home.file."Downloads/Screenshots/.keep".text = "";
+
   programs.zsh = {
     enable = true;
 
