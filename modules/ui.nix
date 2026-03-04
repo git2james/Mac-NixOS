@@ -7,7 +7,6 @@
     finder = {
       AppleShowAllExtensions = true;
       FXEnableExtensionChangeWarning = false;
-      QuitMenuItem = true;
 
       FXPreferredViewStyle = "Nlsv";
 
@@ -20,7 +19,7 @@
       ShowMountedServersOnDesktop = true;
       ShowRemovableMediaOnDesktop = true;
 
-      _FXSortFoldersFirst = true;
+#      _FXSortFoldersFirst = true;
     };
 
     # Spaces / Mission Control
