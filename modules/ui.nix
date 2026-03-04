@@ -28,7 +28,7 @@
       expose-animation-duration = 0.1;
       tilesize = 48;
       launchanim = false;
-      showhidden = true;
+      showhidden = false;
       show-recents = true;
       show-process-indicators = true;
       orientation = "bottom";
