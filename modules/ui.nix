@@ -65,7 +65,7 @@
       "com.apple.sound.beep.feedback" = 1;
       "com.apple.sound.beep.volume" = 0.5;
 
-      "com.apple.trackpad.scaling" = 2.8;
+      "com.apple.trackpad.scaling" = 3.0;
 
       NSWindowShouldDragOnGesture = true;
 
@@ -100,7 +100,7 @@
       "com.apple.driver.AppleBluetoothMultitouch.trackpad" = {
         Clicking = true;
         TrackpadRightClick = true;
-        # "com.apple.trackpad.scaling" = 3.0;
+        "com.apple.trackpad.scaling" = 3.0;
       };
 
       "com.apple.AppleMultitouchTrackpad" = {
