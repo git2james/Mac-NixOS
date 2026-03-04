@@ -73,8 +73,13 @@
     add_if_missing "/Applications/Microsoft Excel.app"
     add_if_missing "/Applications/Microsoft Word.app"
 
-    if ! "$DOCKUTIL" --list | grep -q "/Applications"; then
-      "$DOCKUTIL" --add "/Applications" --view grid --display folder --no-restart
+    if ! "$DOCKUTIL" --list | grep -q "Applications"; then
+      "$DOCKUTIL" --add /Applications \
+        --view grid \
+        --display folder \
+        --sort name \
+        --section others \
+        --no-restart
     fi
 
     /usr/bin/killall Dock || true
