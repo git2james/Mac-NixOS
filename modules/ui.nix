@@ -66,7 +66,7 @@
       "com.apple.sound.beep.volume" = 0.5;
 
       # Correct pointer speed control
-      "com.apple.trackpad.scaling" = 3.0;
+      "com.apple.trackpad.scaling" = 2.5;
 
       NSWindowShouldDragOnGesture = true;
     };
@@ -113,16 +113,16 @@
     };
   };
 
-  system.activationScripts.trackpadSpeed.text = ''
-    echo "Applying trackpad speed..."
-
-    /usr/bin/defaults write -g com.apple.trackpad.scaling -float 3
-
-    /usr/bin/defaults write com.apple.AppleMultitouchTrackpad com.apple.trackpad.scaling -float 3
-    /usr/bin/defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad com.apple.trackpad.scaling -float 3
-
-    /usr/bin/killall cfprefsd || true
-    /usr/bin/killall SystemUIServer || true
-    /usr/bin/killall Dock || true
-  '';
+#  system.activationScripts.trackpadSpeed.text = ''
+#    echo "Applying trackpad speed..."
+#
+#    /usr/bin/defaults write -g com.apple.trackpad.scaling -float 2.5
+#
+#    /usr/bin/defaults write com.apple.AppleMultitouchTrackpad com.apple.trackpad.scaling -float 2.5
+#    /usr/bin/defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad com.apple.trackpad.scaling -float 2.5
+#
+#    /usr/bin/killall cfprefsd || true
+#    /usr/bin/killall SystemUIServer || true
+#    /usr/bin/killall Dock || true
+#  '';
 }
