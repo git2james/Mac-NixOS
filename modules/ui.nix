@@ -73,4 +73,29 @@
       askForPasswordDelay = 5;
     };
   };
+
+  system.activationScripts.dockSetup.text = ''
+    echo "Ensuring Dock apps are present..."
+
+    DOCKUTIL="/opt/homebrew/bin/dockutil"
+    USER_HOME="/Users/James"
+
+    add_if_missing() {
+      APP_PATH="$1"
+      if ! "$DOCKUTIL" --list | grep -q "$APP_PATH"; then
+        "$DOCKUTIL" --add "$APP_PATH"
+      fi
+    }
+
+    add_if_missing "/Applications/Microsoft Teams.app"
+    add_if_missing "/Applications/Microsoft Outlook.app"
+    add_if_missing "/Applications/Microsoft Excel.app"
+    add_if_missing "/Applications/Microsoft Word.app"
+
+    # Add Applications folder as stack if missing
+    if ! "$DOCKUTIL" --list | grep -q "/Applications"; then
+      "$DOCKUTIL" --add /Applications --view grid --display folder
+    fi
+  '';
+
 }
