@@ -21,9 +21,18 @@
 
         inherit system;
 
-        modules = [
-          ./darwin-configuration.nix
-        ];
+	modules = [
+  	  ./darwin-configuration.nix
+
+	  home-manager.darwinModules.home-manager
+
+	  {
+	    home-manager.useGlobalPkgs = true;
+	    home-manager.useUserPackages = true;
+
+	    home-manager.users.James = import ./home.nix;
+	  }
+	];
       };
   };
 }
