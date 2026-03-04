@@ -21,6 +21,14 @@
       fi
     '';
 
+    promptInit = ''
+      autoload -Uz vcs_info
+      precmd() { vcs_info }
+      zstyle ':vcs_info:git:*' formats ' (%b)'
+      setopt PROMPT_SUBST
+      PROMPT='%F{cyan}%~%f${vcs_info_msg_0_} %# '
+    '';
+
     history = {
       size = 10000;
       save = 10000;
