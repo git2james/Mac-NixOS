@@ -15,9 +15,9 @@
 
       NewWindowTarget = "Home";
 
-      ShowHardDrivesOnDesktop = true;
-      ShowMountedServersOnDesktop = true;
-      ShowRemovableMediaOnDesktop = true;
+#      ShowHardDrivesOnDesktop = true;
+#      ShowMountedServersOnDesktop = true;
+#      ShowRemovableMediaOnDesktop = true;
 
 #      _FXSortFoldersFirst = true;
     };
