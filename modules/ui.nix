@@ -66,7 +66,7 @@
       "com.apple.sound.beep.volume" = 0.5;
 
       # Correct pointer speed control
-      "com.apple.trackpad.scaling" = 3;
+      "com.apple.trackpad.scaling" = 3.0;
 
       NSWindowShouldDragOnGesture = true;
     };
