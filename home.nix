@@ -67,9 +67,9 @@
     DOCKUTIL="/opt/homebrew/bin/dockutil"
 
     add_if_missing() {
-      APP_PATH="$1"
-      if ! "$DOCKUTIL" --list | grep -q "$APP_PATH"; then
-        "$DOCKUTIL" --add "$APP_PATH"
+      APP_NAME="$(basename "$1" .app)"
+      if ! "$DOCKUTIL" --list | grep -q "$APP_NAME"; then
+        "$DOCKUTIL" --add "$1" --no-restart
       fi
     }
 
@@ -78,9 +78,11 @@
     add_if_missing "/Applications/Microsoft Excel.app"
     add_if_missing "/Applications/Microsoft Word.app"
 
-    if ! "$DOCKUTIL" --list | grep -q "/Applications"; then
-      "$DOCKUTIL" --add /Applications --view grid --display folder
+    if ! "$DOCKUTIL" --list | grep -q "Applications"; then
+      "$DOCKUTIL" --add /Applications --view grid --display folder --no-restart
     fi
+
+    killall Dock || true
   '';
 
 }
