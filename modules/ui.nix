@@ -73,3 +73,4 @@
       askForPasswordDelay = 5;
     };
   };
+}
