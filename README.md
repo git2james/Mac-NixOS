@@ -33,7 +33,11 @@ This repository provisions:
 # First-Time Setup (Fresh macOS)
 
 ### 1. Install Nix (Multi-User)
-
+Install `xcode-select`:
+```
+xcode-select --install
+```
+After it installs, run:
 ```
 sh <(curl -L https://nixos.org/nix/install)
 ```
@@ -72,6 +76,9 @@ cd Mac-NixOS
 ```
 ### 5. First Activation (Bootstrap nix-darwin)
 ```
+sudo mv /etc/nix/nix.conf /etc/nix/nix.conf.before-nix-darwin
+sudo mv /etc/bashrc /etc/bashrc.before-nix-darwin
+sudo mv /etc/zshrc /etc/zshrc.before-nix-darwin
 sudo nix --extra-experimental-features "nix-command flakes" \
   run nix-darwin/master#darwin-rebuild -- \
   switch --flake .#MacBook-Pro
