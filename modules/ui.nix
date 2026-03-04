@@ -10,21 +10,17 @@
       QuitMenuItem = true;
       _FXShowPosixPathInTitle = false;
 
-      # Default view = List View
       FXPreferredViewStyle = "Nlsv";
 
       ShowPathbar = true;
       ShowStatusBar = true;
 
-      # New Finder windows open in Home
       NewWindowTarget = "Home";
 
-      # Desktop items
       ShowHardDrivesOnDesktop = true;
       ShowMountedServersOnDesktop = true;
       ShowRemovableMediaOnDesktop = true;
 
-      # Finder behaviour
       _FXSortFoldersFirst = true;
     };
 
@@ -46,7 +42,6 @@
       mru-spaces = false;
       expose-group-apps = true;
 
-      # bottom-right corner: put display to sleep
       wvous-br-corner = 10;
     };
 
@@ -77,7 +72,6 @@
       "com.apple.sound.beep.feedback" = 1;
       "com.apple.sound.beep.volume" = 0.5;
 
-      # Pointer speed
       "com.apple.trackpad.scaling" = 2.5;
 
       NSWindowShouldDragOnGesture = true;
@@ -85,15 +79,21 @@
 
     CustomUserPreferences = {
 
-      # macOS clock format control
       NSGlobalDomain = {
         AppleICUForce12HourTime = 1;
       };
 
-      # Finder advanced preferences
+      # Finder deeper behaviour
       "com.apple.finder" = {
         FXPreferredGroupBy = "Kind";
         WarnOnEmptyTrash = false;
+
+        # List view settings
+        StandardViewSettings = {
+          ListViewSettings = {
+            calculateAllSizes = 1;
+          };
+        };
       };
 
       # Screenshots
@@ -114,19 +114,16 @@
         askForPasswordDelay = 5;
       };
 
-      # Internal MacBook trackpad
       "com.apple.AppleMultitouchTrackpad" = {
         Clicking = true;
         TrackpadRightClick = true;
       };
 
-      # Magic Trackpad / Bluetooth trackpad
       "com.apple.driver.AppleBluetoothMultitouch.trackpad" = {
         Clicking = true;
         TrackpadRightClick = true;
       };
 
-      # Menu bar clock
       "com.apple.menuextra.clock" = {
         ShowAMPM = true;
         ShowDate = 1;
