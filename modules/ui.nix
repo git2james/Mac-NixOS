@@ -8,7 +8,7 @@
       AppleShowAllExtensions = true;
       FXEnableExtensionChangeWarning = false;
       QuitMenuItem = true;
-      _FXShowPosixPathInTitle = true;
+      _FXShowPosixPathInTitle = false;
       FXPreferredViewStyle = "Nlsv";
       ShowPathbar = true;
       ShowStatusBar = true;
@@ -51,7 +51,7 @@
       NSAutomaticSpellingCorrectionEnabled = false;
 
       "com.apple.sound.beep.feedback" = 1;
-      "com.apple.sound.beep.volume" = 0.6;
+      "com.apple.sound.beep.volume" = 0.5;
       NSWindowShouldDragOnGesture = true;
     };
 

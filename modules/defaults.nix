@@ -6,8 +6,8 @@
 
   system.defaults.CustomUserPreferences = {
     "com.apple.Terminal" = {
-      "Default Window Settings" = "Homebrew";
-      "Startup Window Settings" = "Homebrew";
+      "Default Window Settings" = "Clear Dark";
+      "Startup Window Settings" = "Clear Dark";
     };
   };
 }
