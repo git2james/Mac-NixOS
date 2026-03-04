@@ -14,6 +14,13 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
+    initExtra = ''
+      # Ensure Homebrew is in PATH
+      if [ -d /opt/homebrew/bin ]; then
+        export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+      fi
+    '';
+
     history = {
       size = 10000;
       save = 10000;
