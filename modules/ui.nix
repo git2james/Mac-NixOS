@@ -51,6 +51,8 @@
       AppleTemperatureUnit = "Celsius";
       AppleShowScrollBars = "Automatic";
 
+      AppleICUForce24HourTime = false;
+
       NSAutomaticCapitalizationEnabled = false;
       NSAutomaticDashSubstitutionEnabled = false;
       NSAutomaticPeriodSubstitutionEnabled = false;
@@ -62,10 +64,6 @@
 
       NSWindowShouldDragOnGesture = true;
 
-      # Menubar clock format
-      AppleICUTimeFormatStrings = {
-        "1" = "h:mm a";
-      };
     };
 
     CustomUserPreferences = {
