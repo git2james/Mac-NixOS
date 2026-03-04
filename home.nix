@@ -72,6 +72,7 @@
     add_if_missing "/Applications/Microsoft Outlook.app"
     add_if_missing "/Applications/Microsoft Excel.app"
     add_if_missing "/Applications/Microsoft Word.app"
+    add_if_missing "/System/Applications/Utilities/Terminal.app"
 
     if ! "$DOCKUTIL" --list | grep -q "/Applications"; then
       "$DOCKUTIL" --add /Applications \
