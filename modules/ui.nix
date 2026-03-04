@@ -76,6 +76,6 @@
 
   # Ensure screenshot directory exists
   system.activationScripts.createScreenshotFolder.text = ''
-    mkdir -p "$HOME/Downloads/Screenshots"
-  '';
-}
+    mkdir -p /Users/James/Downloads/Screenshots
+    chown James:staff /Users/James/Downloads/Screenshots
+  '';}
