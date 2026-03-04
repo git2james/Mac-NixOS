@@ -40,6 +40,10 @@
     trackpad = {
       Clicking = true;           # tap to click
       TrackpadRightClick = true; # two-finger right click
+      Dragging = true;
+      TrackpadMomentumScroll = true;
+      TrackpadThreeFingerDrag = false
+      
     };
 
     # Global UI Behaviour
