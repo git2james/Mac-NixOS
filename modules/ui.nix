@@ -100,11 +100,11 @@
       "com.apple.driver.AppleBluetoothMultitouch.trackpad" = {
         Clicking = true;
         TrackpadRightClick = true;
-        "com.apple.trackpad.scaling" = 2.0;
+        # "com.apple.trackpad.scaling" = 3.0;
       };
 
       "com.apple.AppleMultitouchTrackpad" = {
-        "com.apple.trackpad.scaling" = 2.0;
+        "com.apple.trackpad.scaling" = 3.0;
       };
 
       # Menu bar clock
