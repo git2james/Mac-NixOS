@@ -20,6 +20,8 @@
         export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
       fi
 
+      fc -R ~/.zsh_history
+
       PROMPT=' %F{cyan}%~%f > '
     '';
 
