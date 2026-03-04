@@ -42,8 +42,7 @@
       TrackpadRightClick = true; # two-finger right click
       Dragging = true;
       TrackpadMomentumScroll = true;
-      TrackpadThreeFingerDrag = false
-      
+      TrackpadThreeFingerDrag = false;
     };
 
     # Global UI Behaviour
