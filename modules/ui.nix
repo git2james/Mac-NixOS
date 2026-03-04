@@ -113,17 +113,16 @@
     };
   };
 
-  # Force pointer speed because macOS reads the ByHost domain
   system.activationScripts.trackpadSpeed.text = ''
-    echo "Setting trackpad speed..."
+    echo "Applying trackpad speed..."
 
     /usr/bin/defaults write -g com.apple.trackpad.scaling -float 3
 
-    for file in ~/Library/Preferences/ByHost/.GlobalPreferences.*.plist; do
-      /usr/bin/defaults write "$file" com.apple.trackpad.scaling -float 3 || true
-    done
+    /usr/bin/defaults write com.apple.AppleMultitouchTrackpad com.apple.trackpad.scaling -float 3
+    /usr/bin/defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad com.apple.trackpad.scaling -float 3
 
     /usr/bin/killall cfprefsd || true
+    /usr/bin/killall SystemUIServer || true
+    /usr/bin/killall Dock || true
   '';
-
 }
