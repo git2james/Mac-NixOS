@@ -38,8 +38,8 @@
 
     # Trackpad
     trackpad = {
-      Clicking = true;           # tap to click
-      TrackpadRightClick = true; # two-finger right click
+      Clicking = true;
+      TrackpadRightClick = true;
       Dragging = true;
       TrackpadMomentumScroll = true;
       TrackpadThreeFingerDrag = false;
@@ -65,10 +65,11 @@
       "com.apple.sound.beep.feedback" = 1;
       "com.apple.sound.beep.volume" = 0.5;
 
+      # Pointer speed
       "com.apple.trackpad.scaling" = 3.0;
+      "com.apple.mouse.scaling" = 3.0;
 
       NSWindowShouldDragOnGesture = true;
-
     };
 
     CustomUserPreferences = {
@@ -91,22 +92,17 @@
         askForPasswordDelay = 5;
       };
 
-      "com.apple.mouse.scaling" = 3.0;
-
-
-      # Trackpad (extra domain macOS uses)
+      # Trackpad (internal)
       "com.apple.AppleMultitouchTrackpad" = {
-        Clicking = true;
-        TrackpadRightClick = true;
-      };
-
-      "com.apple.driver.AppleBluetoothMultitouch.trackpad" = {
         Clicking = true;
         TrackpadRightClick = true;
         "com.apple.trackpad.scaling" = 3.0;
       };
 
-      "com.apple.AppleMultitouchTrackpad" = {
+      # Trackpad (Bluetooth / Magic Trackpad)
+      "com.apple.driver.AppleBluetoothMultitouch.trackpad" = {
+        Clicking = true;
+        TrackpadRightClick = true;
         "com.apple.trackpad.scaling" = 3.0;
       };
 
