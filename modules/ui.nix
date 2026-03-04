@@ -8,7 +8,6 @@
       AppleShowAllExtensions = true;
       FXEnableExtensionChangeWarning = false;
       QuitMenuItem = true;
-      _FXShowPosixPathInTitle = false;
 
       FXPreferredViewStyle = "Nlsv";
 
@@ -36,10 +35,10 @@
       tilesize = 48;
       launchanim = false;
       showhidden = true;
-      show-recents = false;
+      show-recents = true;
       show-process-indicators = true;
       orientation = "bottom";
-      mru-spaces = false;
+      mru-spaces = true;
       expose-group-apps = true;
 
       wvous-br-corner = 10;
@@ -59,7 +58,7 @@
       NSAutomaticWindowAnimationsEnabled = false;
       NSWindowResizeTime = 0.1;
 
-      AppleInterfaceStyleSwitchesAutomatically = true;
+      AppleInterfaceStyleSwitchesAutomatically = false;
       AppleTemperatureUnit = "Celsius";
       AppleShowScrollBars = "Automatic";
 
