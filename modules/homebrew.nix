@@ -9,6 +9,7 @@
     brews = [
       "nano"
       "tree"
+      "dockutil"
     ];
 
     casks = [
