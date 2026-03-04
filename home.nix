@@ -19,9 +19,8 @@
       if [ -d /opt/homebrew/bin ]; then
         export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
       fi
-    '';
 
-    promptInit = ''
+      # Clean minimal git-aware prompt
       autoload -Uz vcs_info
       precmd() { vcs_info }
       zstyle ':vcs_info:git:*' formats ' (%b)'
