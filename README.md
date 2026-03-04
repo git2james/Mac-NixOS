@@ -32,102 +32,78 @@ This repository provisions:
 
 # First-Time Setup (Fresh macOS)
 
-## 1. Install Nix (Multi-User)
+### 1. Install Nix (Multi-User)
 
-```bash
+```
 sh <(curl -L https://nixos.org/nix/install)
+```
 Restart your terminal after installation.
-2. Enable Flakes (Required Once)
+### 2. Enable Flakes (Required Once)
+```
 sudo mkdir -p /etc/nix
 echo "experimental-features = nix-command flakes" | sudo tee /etc/nix/nix.conf
 sudo launchctl kickstart -k system/org.nixos.nix-daemon
+```
 Verify:
+```
 nix config show | grep experimental-features
+```
 You should see:
-experimental-features = nix-command flakes
-3. Install Homebrew
+`experimental-features = nix-command flakes`
+
+### 3. Install Homebrew
+```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
 Follow any post-install instructions printed by Homebrew.
-4. Clone This Repository
+
+### 4. Clone This Repository
 If public:
+```
 git clone https://github.com/git2james/Mac-NixOS.git
+```
 If private:
+```
 git clone git@github.com:git2james/Mac-NixOS.git
+```
 Then:
+```
 cd Mac-NixOS
-5. First Activation (Bootstrap nix-darwin)
+```
+### 5. First Activation (Bootstrap nix-darwin)
+```
 sudo nix --extra-experimental-features "nix-command flakes" \
   run nix-darwin/master#darwin-rebuild -- \
   switch --flake .#MacBook-Pro
+```
 During this step:
-/etc becomes managed by nix-darwin
-Homebrew apps install
-Microsoft 365 installs
-Dock apps are added
-UI defaults apply
-6. From Now On
+- `/etc` becomes managed by `nix-darwin`
+- Homebrew apps install
+- Microsoft 365 installs
+- Dock apps are added
+- UI defaults apply
+
+### 6. From Now On
 Rebuild with:
+```
 sudo darwin-rebuild switch --flake .#MacBook-Pro
-What This Config Does
-UI Behavior
-Fast Dock animations
-Autohide Dock
-No recent apps
-Separate Spaces per display
-Clean Finder defaults
-Screenshot location: ~/Downloads/Screenshots
-Automatic dark/light mode
-No smart quotes / auto-correct
-Dock
-Keeps existing layout
-Ensures Microsoft Teams, Outlook, Excel, Word exist
-Adds /Applications stack
-Does NOT fully manage Dock layout
-Terminal
-Apple-style prompt:
- ~/Mac-NixOS >
-Homebrew automatically in PATH
-Clean Zsh config via Home Manager
-Git
-Declarative config
-Default branch = main
-Rebase on pull
-Auto-setup remote on push
-Installed Applications (Required)
-Via Homebrew:
-Microsoft Teams
-Microsoft Outlook
-Microsoft Excel
-Microsoft Word
-Visual Studio Code
-VLC
-Shottr
-dockutil
-nano
-tree
-Updating Configuration
+```
+## Updating Configuration
 After editing any .nix file:
+```
 git add .
 git commit -m "Describe change"
 sudo darwin-rebuild switch --flake .#MacBook-Pro
-Troubleshooting
+```
+## Troubleshooting
 Dock Changes Not Applying
+```
 killall Dock
+```
 Homebrew Tools Not Found
 Open a new terminal window.
+
 Flake Errors About Missing Files
 Ensure all files are committed before rebuilding:
 git status
 Flakes only see committed files.
-Notes
-Apple Silicon only
-Hostname hardcoded as MacBook-Pro
-Changing macOS hostname does NOT affect flake output
-Repo can safely be private
-Philosophy
-System-level config → nix-darwin
-User-level config → Home Manager
-No imperative tweaks
-No manual dotfile editing
-No Dock resets
-Fully declarative macOS
