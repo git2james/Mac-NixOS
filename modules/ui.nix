@@ -54,8 +54,6 @@
       AppleTemperatureUnit = "Celsius";
       AppleShowScrollBars = "Automatic";
 
-      AppleICUForce12HourTime = 1;
-
       NSAutomaticCapitalizationEnabled = false;
       NSAutomaticDashSubstitutionEnabled = false;
       NSAutomaticPeriodSubstitutionEnabled = false;
@@ -72,6 +70,11 @@
     };
 
     CustomUserPreferences = {
+
+      # macOS clock format control (actual key used by System Settings)
+      NSGlobalDomain = {
+        AppleICUForce12HourTime = 1;
+      };
 
       # Screenshots
       "com.apple.screencapture" = {
@@ -112,17 +115,4 @@
       };
     };
   };
-
-#  system.activationScripts.trackpadSpeed.text = ''
-#    echo "Applying trackpad speed..."
-#
-#    /usr/bin/defaults write -g com.apple.trackpad.scaling -float 2.5
-#
-#    /usr/bin/defaults write com.apple.AppleMultitouchTrackpad com.apple.trackpad.scaling -float 2.5
-#    /usr/bin/defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad com.apple.trackpad.scaling -float 2.5
-#
-#    /usr/bin/killall cfprefsd || true
-#    /usr/bin/killall SystemUIServer || true
-#    /usr/bin/killall Dock || true
-#  '';
 }
