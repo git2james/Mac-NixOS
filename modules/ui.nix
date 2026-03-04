@@ -54,7 +54,7 @@
       AppleTemperatureUnit = "Celsius";
       AppleShowScrollBars = "Automatic";
 
-      AppleICUForce24HourTime = false;
+      AppleICUForce12HourTime = 1;
 
       NSAutomaticCapitalizationEnabled = false;
       NSAutomaticDashSubstitutionEnabled = false;
