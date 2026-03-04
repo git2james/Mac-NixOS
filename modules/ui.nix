@@ -9,9 +9,24 @@
       FXEnableExtensionChangeWarning = false;
       QuitMenuItem = true;
       _FXShowPosixPathInTitle = false;
+
+      # Default view = List View
       FXPreferredViewStyle = "Nlsv";
+
       ShowPathbar = true;
       ShowStatusBar = true;
+
+      # New Finder windows open in Home
+      NewWindowTarget = "PfHm";
+      NewWindowTargetPath = "file:///Users/James/";
+
+      # Desktop items
+      ShowHardDrivesOnDesktop = true;
+      ShowMountedServersOnDesktop = true;
+      ShowRemovableMediaOnDesktop = true;
+
+      # Finder behaviour
+      _FXSortFoldersFirst = true;
     };
 
     # Spaces / Mission Control
@@ -63,7 +78,7 @@
       "com.apple.sound.beep.feedback" = 1;
       "com.apple.sound.beep.volume" = 0.5;
 
-      # Correct pointer speed control
+      # Pointer speed
       "com.apple.trackpad.scaling" = 2.5;
 
       NSWindowShouldDragOnGesture = true;
@@ -71,9 +86,15 @@
 
     CustomUserPreferences = {
 
-      # macOS clock format control (actual key used by System Settings)
+      # macOS clock format control
       NSGlobalDomain = {
         AppleICUForce12HourTime = 1;
+      };
+
+      # Finder advanced preferences
+      "com.apple.finder" = {
+        FXPreferredGroupBy = "Kind";
+        WarnOnEmptyTrash = false;
       };
 
       # Screenshots
