@@ -67,12 +67,16 @@
 
       # Pointer speed
       "com.apple.trackpad.scaling" = 3.0;
-      "com.apple.mouse.scaling" = 3.0;
 
       NSWindowShouldDragOnGesture = true;
     };
 
     CustomUserPreferences = {
+
+      # Global preferences not supported directly by nix-darwin
+      NSGlobalDomain = {
+        "com.apple.mouse.scaling" = 3.0;
+      };
 
       # Screenshots
       "com.apple.screencapture" = {
