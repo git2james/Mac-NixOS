@@ -67,6 +67,10 @@
 
       "com.apple.trackpad.scaling" = 2.5;
 
+      # keyboard repeat settings
+      KeyRepeat = 2;
+      InitialKeyRepeat = 15;
+
       NSWindowShouldDragOnGesture = true;
     };
 
