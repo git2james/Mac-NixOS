@@ -30,7 +30,7 @@
 
   system.defaults.finder.AppleShowAllExtensions = true;
   system.defaults.NSGlobalDomain.AppleShowAllExtensions = true;
-  system.defaults.dock.AppleShowAllExtensions = true;
+#  system.defaults.dock.AppleShowAllExtensions = true;
 
   homebrew = {
     enable = true;
