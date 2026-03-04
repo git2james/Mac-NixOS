@@ -65,9 +65,6 @@
       "com.apple.sound.beep.feedback" = 1;
       "com.apple.sound.beep.volume" = 0.5;
 
-      # Pointer speed
-      "com.apple.trackpad.scaling" = 3.0;
-
       NSWindowShouldDragOnGesture = true;
     };
 
@@ -75,7 +72,7 @@
 
       # Global preferences not supported directly by nix-darwin
       NSGlobalDomain = {
-        "com.apple.mouse.scaling" = 3.0;
+        "com.apple.mouse.scaling" = 3;
       };
 
       # Screenshots
@@ -96,18 +93,18 @@
         askForPasswordDelay = 5;
       };
 
-      # Trackpad (internal)
+      # Internal MacBook trackpad
       "com.apple.AppleMultitouchTrackpad" = {
         Clicking = true;
         TrackpadRightClick = true;
-        "com.apple.trackpad.scaling" = 3.0;
+        "com.apple.trackpad.scaling" = 3;
       };
 
-      # Trackpad (Bluetooth / Magic Trackpad)
+      # Magic Trackpad / Bluetooth trackpad
       "com.apple.driver.AppleBluetoothMultitouch.trackpad" = {
         Clicking = true;
         TrackpadRightClick = true;
-        "com.apple.trackpad.scaling" = 3.0;
+        "com.apple.trackpad.scaling" = 3;
       };
 
       # Menu bar clock
