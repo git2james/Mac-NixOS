@@ -29,13 +29,23 @@
   programs.git = {
     enable = true;
 
-    userName = "James Joy";
-    userEmail = "james.joy@mac.com";
+    settings = {
+      user = {
+        name = "James Joy";
+        email = "james.joy@mac.com";
+      };
 
-    extraConfig = {
-      init.defaultBranch = "main";
-      pull.rebase = true;
-      push.autoSetupRemote = true;
+      init = {
+        defaultBranch = "main";
+      };
+
+      pull = {
+        rebase = true;
+      };
+
+      push = {
+        autoSetupRemote = true;
+      };
     };
   };
 
