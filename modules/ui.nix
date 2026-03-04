@@ -66,7 +66,6 @@
       "com.apple.sound.beep.volume" = 0.5;
 
       "com.apple.trackpad.scaling" = 3.0;
-      "com.apple.mouse.scaling" = 3.0;
 
       NSWindowShouldDragOnGesture = true;
 
@@ -91,6 +90,9 @@
         askForPassword = 1;
         askForPasswordDelay = 5;
       };
+
+      "com.apple.mouse.scaling" = 3.0;
+
 
       # Trackpad (extra domain macOS uses)
       "com.apple.AppleMultitouchTrackpad" = {
