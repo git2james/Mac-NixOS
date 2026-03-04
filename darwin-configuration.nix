@@ -8,5 +8,6 @@
     ./modules/defaults.nix
     ./modules/security.nix
     ./modules/ui.nix
+#    ./modules/trackpad.nix
   ];
 }
