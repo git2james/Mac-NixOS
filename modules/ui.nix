@@ -17,6 +17,7 @@
     # Spaces / Mission Control
     spaces.spans-displays = false;
 
+    # Dock
     dock = {
       autohide = true;
       autohide-delay = 0.0;
@@ -33,6 +34,12 @@
 
       # bottom-right corner: put display to sleep
       wvous-br-corner = 10;
+    };
+
+    # Trackpad
+    trackpad = {
+      Clicking = true;           # tap to click
+      TrackpadRightClick = true; # two-finger right click
     };
 
     # Global UI Behaviour
@@ -52,25 +59,53 @@
 
       "com.apple.sound.beep.feedback" = 1;
       "com.apple.sound.beep.volume" = 0.5;
+
       NSWindowShouldDragOnGesture = true;
+
+      # Menubar clock format
+      AppleICUTimeFormatStrings = {
+        "1" = "h:mm a";
+      };
     };
 
-    # Screenshots
-    CustomUserPreferences."com.apple.screencapture" = {
-      location = "~/Downloads/Screenshots";
-      type = "png";
-    };
+    CustomUserPreferences = {
 
-    # Desktop Services
-    CustomUserPreferences."com.apple.desktopservices" = {
-      DSDontWriteNetworkStores = true;
-      DSDontWriteUSBStores = true;
-    };
+      # Screenshots
+      "com.apple.screencapture" = {
+        location = "~/Downloads/Screenshots";
+        type = "png";
+      };
 
-    # Screensaver Security
-    CustomUserPreferences."com.apple.screensaver" = {
-      askForPassword = 1;
-      askForPasswordDelay = 5;
+      # Desktop Services
+      "com.apple.desktopservices" = {
+        DSDontWriteNetworkStores = true;
+        DSDontWriteUSBStores = true;
+      };
+
+      # Screensaver Security
+      "com.apple.screensaver" = {
+        askForPassword = 1;
+        askForPasswordDelay = 5;
+      };
+
+      # Trackpad (extra domain macOS uses)
+      "com.apple.AppleMultitouchTrackpad" = {
+        Clicking = true;
+        TrackpadRightClick = true;
+      };
+
+      "com.apple.driver.AppleBluetoothMultitouch.trackpad" = {
+        Clicking = true;
+        TrackpadRightClick = true;
+      };
+
+      # Menu bar clock
+      "com.apple.menuextra.clock" = {
+        ShowAMPM = true;
+        ShowDate = 1;
+        ShowDayOfWeek = true;
+        Use24HourTime = false;
+      };
     };
   };
 }
