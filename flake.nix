@@ -11,7 +11,7 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nixpkgs, darwin }:
+  outputs = inputs@{ self, nixpkgs, darwin, home-manager, ... }:
   let
     system = "aarch64-darwin";
   in
