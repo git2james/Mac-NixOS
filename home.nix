@@ -53,4 +53,27 @@
 
   home.packages = with pkgs; [
   ];
+
+  home.activation.setupDock = config.lib.dag.entryAfter ["writeBoundary"] ''
+    echo "Configuring Dock apps..."
+
+    DOCKUTIL="/opt/homebrew/bin/dockutil"
+
+    add_if_missing() {
+      APP_PATH="$1"
+      if ! "$DOCKUTIL" --list | grep -q "$APP_PATH"; then
+        "$DOCKUTIL" --add "$APP_PATH"
+      fi
+    }
+
+    add_if_missing "/Applications/Microsoft Teams.app"
+    add_if_missing "/Applications/Microsoft Outlook.app"
+    add_if_missing "/Applications/Microsoft Excel.app"
+    add_if_missing "/Applications/Microsoft Word.app"
+
+    if ! "$DOCKUTIL" --list | grep -q "/Applications"; then
+      "$DOCKUTIL" --add /Applications --view grid --display folder
+    fi
+  '';
+
 }
