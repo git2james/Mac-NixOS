@@ -48,7 +48,7 @@
     settings = {
       user = {
         name = "James Joy";
-        email = "james.joy@mac.com";
+        email = "4472496+git2james@users.noreply.github.com";
       };
 
       init = {
