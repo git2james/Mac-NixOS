@@ -14,7 +14,7 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
-    initExtra = ''
+    initContent = ''
       # Ensure Homebrew is in PATH
       if [ -d /opt/homebrew/bin ]; then
         export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
