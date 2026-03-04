@@ -7,19 +7,14 @@
     finder = {
       AppleShowAllExtensions = true;
       FXEnableExtensionChangeWarning = false;
-
       FXPreferredViewStyle = "Nlsv";
-
       ShowPathbar = true;
       ShowStatusBar = true;
-
       NewWindowTarget = "Home";
-
-#      ShowHardDrivesOnDesktop = true;
-#      ShowMountedServersOnDesktop = true;
-#      ShowRemovableMediaOnDesktop = true;
-
-#      _FXSortFoldersFirst = true;
+      ShowHardDrivesOnDesktop = true;
+      ShowMountedServersOnDesktop = true;
+      ShowRemovableMediaOnDesktop = true;
+      _FXSortFoldersFirst = true;
     };
 
     # Spaces / Mission Control
@@ -87,11 +82,11 @@
         WarnOnEmptyTrash = false;
 
         # List view settings
-        StandardViewSettings = {
-          ListViewSettings = {
-            calculateAllSizes = 1;
-          };
-        };
+#        StandardViewSettings = {
+#          ListViewSettings = {
+#            calculateAllSizes = 1;
+#          };
+#        };
       };
 
       # Screenshots
