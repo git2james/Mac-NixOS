@@ -63,8 +63,11 @@
     DOCKUTIL="/opt/homebrew/bin/dockutil"
 
     add_if_missing() {
-      if ! "$DOCKUTIL" --list | grep -q "$1"; then
-        "$DOCKUTIL" --add "$1" --no-restart
+      APP_PATH="$1"
+      APP_NAME="$(basename "$APP_PATH" .app)"
+
+      if ! "$DOCKUTIL" --list | grep -q "$APP_NAME"; then
+        "$DOCKUTIL" --add "$APP_PATH" --no-restart
       fi
     }
 
