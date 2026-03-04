@@ -73,11 +73,11 @@
     add_if_missing "/Applications/Microsoft Excel.app"
     add_if_missing "/Applications/Microsoft Word.app"
 
-    if ! "$DOCKUTIL" --list | grep -q "Applications"; then
+    if ! "$DOCKUTIL" --list | grep -q "/Applications"; then
       "$DOCKUTIL" --add /Applications \
-        --view grid \
+        --type folder \
         --display folder \
-        --sort name \
+        --view auto \
         --section others \
         --no-restart
     fi
