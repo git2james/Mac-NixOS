@@ -17,8 +17,7 @@
       ShowStatusBar = true;
 
       # New Finder windows open in Home
-      NewWindowTarget = "PfHm";
-      NewWindowTargetPath = "file:///Users/James/";
+      NewWindowTarget = "Home";
 
       # Desktop items
       ShowHardDrivesOnDesktop = true;
