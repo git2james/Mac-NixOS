@@ -22,6 +22,11 @@
 
       fc -R ~/.zsh_history
 
+      # Show neofetch only in interactive shells
+      if [[ $- == *i* ]]; then
+        neofetch
+      fi
+
       PROMPT=' %F{cyan}%~%f > '
     '';
 
@@ -57,6 +62,7 @@
   };
 
   home.packages = with pkgs; [
+    neofetch
   ];
 
   home.activation.setupDock = config.lib.dag.entryAfter ["writeBoundary"] ''
