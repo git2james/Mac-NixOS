@@ -64,36 +64,4 @@
   home.packages = with pkgs; [
     neofetch
   ];
-
-  home.activation.setupDock = config.lib.dag.entryAfter ["writeBoundary"] ''
-    echo "Configuring Dock apps..."
-
-    DOCKUTIL="/opt/homebrew/bin/dockutil"
-
-    add_if_missing() {
-      APP_PATH="$1"
-      APP_NAME="$(basename "$APP_PATH" .app)"
-
-      if ! "$DOCKUTIL" --list | grep -q "$APP_NAME"; then
-        "$DOCKUTIL" --add "$APP_PATH" --no-restart
-      fi
-    }
-
-    add_if_missing "/Applications/Microsoft Teams.app"
-    add_if_missing "/Applications/Microsoft Outlook.app"
-    add_if_missing "/Applications/Microsoft Excel.app"
-    add_if_missing "/Applications/Microsoft Word.app"
-    add_if_missing "/System/Applications/Utilities/Terminal.app"
-
-    if ! "$DOCKUTIL" --list | grep -q "/Applications"; then
-      "$DOCKUTIL" --add /Applications \
-        --type folder \
-        --display folder \
-        --view auto \
-        --section others \
-        --no-restart
-    fi
-
-    /usr/bin/killall Dock || true
-  '';
 }

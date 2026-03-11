@@ -36,6 +36,17 @@
       expose-group-apps = true;
 
       wvous-br-corner = 10;
+
+      persistent-apps = [
+        "/Applications/Microsoft Teams.app"
+        "/Applications/Microsoft Outlook.app"
+        "/Applications/Microsoft Excel.app"
+        "/Applications/Microsoft Word.app"
+        "/System/Applications/Utilities/Terminal.app"
+      ];
+      persistent-others = [
+        "/Applications"
+      ];
     };
 
     # Trackpad
@@ -129,4 +140,9 @@
       };
     };
   };
+
+  system.activationScripts.postUserActivation.text = ''
+    # Apply changes to macOS defaults
+    /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+  '';
 }
