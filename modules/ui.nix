@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   system.defaults = {
@@ -38,6 +38,22 @@
       wvous-br-corner = 10;
 
       persistent-apps = [
+        "/System/Applications/Apps.app"
+        "/System/Applications/Phone.app"
+        "/System/Cryptexes/App/System/Applications/Safari.app"
+        "/System/Applications/Messages.app"
+        "/System/Applications/Mail.app"
+        "/System/Applications/Photos.app"
+        "/System/Applications/FaceTime.app"
+        "/System/Applications/iPhone Mirroring.app"
+        "/System/Applications/Calendar.app"
+        "/System/Applications/Contacts.app"
+        "/System/Applications/Reminders.app"
+        "/System/Applications/Notes.app"
+        "/System/Applications/TV.app"
+        "/System/Applications/Music.app"
+        "/System/Applications/App Store.app"
+        "/System/Applications/System Settings.app"
         "/Applications/Microsoft Teams.app"
         "/Applications/Microsoft Outlook.app"
         "/Applications/Microsoft Excel.app"
@@ -45,7 +61,20 @@
         "/System/Applications/Utilities/Terminal.app"
       ];
       persistent-others = [
-        "/Applications"
+        {
+          folder = {
+            path = "/Applications";
+            displayas = "folder";
+            showas = "grid";
+          };
+        }
+        {
+          folder = {
+            path = "/Users/James/Downloads";
+            displayas = "folder";
+            showas = "list";
+          };
+        }
       ];
     };
 
@@ -141,8 +170,8 @@
     };
   };
 
-  system.activationScripts.postUserActivation.text = ''
+  system.activationScripts.activateSettings.text = ''
     # Apply changes to macOS defaults
-    /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+    sudo -u ${config.system.primaryUser} /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
   '';
 }
