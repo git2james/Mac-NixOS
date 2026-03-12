@@ -33,7 +33,7 @@
 
       # Show fastfetch only in interactive shells
       if [[ $- == *i* ]]; then
-        fastfetch
+        fastfetch -s OS:Host:Kernel:Uptime:Packages:Shell:Display:Terminal:TerminalFont:CPU:GPU:Memory:Disk:LocalIP:Battery:PowerAdapter:Colors
       fi
 
       PROMPT=' %F{cyan}%~%f > '
