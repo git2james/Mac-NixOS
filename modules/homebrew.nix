@@ -4,12 +4,14 @@
   homebrew = {
     enable = true;
 
-    onActivation.cleanup = "zap";
+    onActivation.cleanup = "none";
+    onActivation.upgrade = true;
 
     brews = [
       "nano"
       "tree"
-      "dockutil"
+      "node"
+      "gemini-cli"
     ];
 
     casks = [

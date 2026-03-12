@@ -8,4 +8,8 @@
     curl
     iperf3
   ];
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.hack
+  ];
 }

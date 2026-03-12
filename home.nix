@@ -15,6 +15,15 @@
     syntaxHighlighting.enable = true;
 
     initContent = ''
+      # Color support
+      export CLICOLOR=1
+      export LSCOLORS="Gxfxcxdxbxegedabagacad"
+      export LESS="-R"
+
+      # Colored completion
+      zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
+      zstyle ':completion:*' menu select
+
       # Ensure Homebrew is in PATH
       if [ -d /opt/homebrew/bin ]; then
         export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
@@ -39,7 +48,13 @@
     };
 
     shellAliases = {
-      ll = "ls -la";
+      ls = "eza --icons --color=always --group-directories-first";
+      ll = "eza -lah --icons --color=always --group-directories-first";
+      tree = "eza --tree --icons";
+      grep = "grep --color=auto";
+      egrep = "egrep --color=auto";
+      fgrep = "fgrep --color=auto";
+      diff = "diff --color=auto";
       rebuild = "sudo darwin-rebuild switch --flake ~/Mac-NixOS#MacBook-Pro";
     };
   };
@@ -54,14 +69,14 @@
       };
 
       init.defaultBranch = "main";
-
       pull.rebase = true;
-
       push.autoSetupRemote = true;
     };
   };
 
   home.packages = with pkgs; [
     neofetch
+    eza
+    zsh-completions
   ];
 }
