@@ -7,6 +7,7 @@ This project manages a macOS 26 Tahoe configuration using `nix-darwin` and `home
 - **Architecture:** `aarch64-darwin` (Apple Silicon)
 - **Primary User:** `James`
 - **Rebuild Command:** `sudo darwin-rebuild switch --flake .#MacBook-Pro`
+- **Update Command:** `update-system` (Alias for flake update + rebuild)
 
 ## Configuration Mandates
 
@@ -31,6 +32,7 @@ This project manages a macOS 26 Tahoe configuration using `nix-darwin` and `home
 - **Hostname:** `MacBook-Pro`
 - **Touch ID:** Enabled for `sudo` in terminal (`security.pam.services.sudo_local.touchIdAuth`).
 - **Nix Features:** `nix-command`, `flakes` enabled; `allowUnfree = true`.
+- **Maintenance:** Automatic weekly garbage collection (Sundays at 3:15 AM) and store optimization enabled.
 - **Screensaver:** Password required after 5 seconds.
 
 ### macOS UI Preferences (`modules/ui.nix`)
@@ -55,16 +57,24 @@ This project manages a macOS 26 Tahoe configuration using `nix-darwin` and `home
   - Network/USB Stores: `.DS_Store` writing disabled.
 
 ### Software Stack
-- **System Packages (Nix):** `git`, `htop`, `neofetch`, `curl`, `iperf3`.
-- **Homebrew Brews:** `nano`, `tree`, `dockutil`.
+- **System Packages (Nix):** `git`, `htop`, `fastfetch`, `curl`, `iperf3`.
+- **Fonts:** `nerd-fonts.hack` (Hack Nerd Font) installed via `fonts.packages`.
+- **Homebrew Configuration:** `onActivation.cleanup = "none"`, `onActivation.upgrade = true`.
+- **Homebrew Brews:** `nano`, `tree`, `node`, `gemini-cli`.
 - **Homebrew Casks:** `visual-studio-code`, `shottr`, `vlc`, `microsoft-office`, `microsoft-teams`, `microsoft-azure-storage-explorer`.
 
 ### Shell & Git (`home.nix`)
 - **Zsh:**
-  - Plugins: Completion, Autosuggestions, Syntax Highlighting.
-  - Prompt: ` %F{cyan}%~%f > `.
-  - Startup: Shows `neofetch` in interactive shells.
-  - Aliases: `ll = "ls -la"`, `rebuild` (flake switch).
+    - **Color Support:** `CLICOLOR=1`, `LSCOLORS` configured, `LESS="-R"` for pager colors.
+    - **Completions:** `zsh-completions` package, colorized menu selection enabled.
+    - **Modern Tools:** `eza` for colorized/icon-based `ls`, `fastfetch` for system info summary (customized modules).
+    - **Prompt:** ` %F{cyan}%~%f > `.
+    - **Aliases:** 
+      - `ls`: `eza` with icons and colors.
+      - `ll`: Long list `eza`.
+      - `tree`: Tree view `eza`.
+      - `update-system`: Automates `flake update` and `darwin-rebuild`.
+      - `rebuild`: standard darwin-rebuild switch.
 - **Git:**
   - User: `James Joy` (`4472496+git2james@users.noreply.github.com`).
   - Defaults: `main` branch, auto-setup remote, rebase on pull.
