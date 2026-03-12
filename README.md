@@ -7,23 +7,22 @@ Declarative macOS setup using:
 - nix-darwin (flake-based)
 - Home Manager
 - Homebrew (managed declaratively)
-- Microsoft 365 apps required
+- Microsoft 365 + Terminal tools
 
 This repository provisions:
 
 - Clean, fast macOS UI
 - Hybrid stock Dock (non-destructive management)
-- Apple-style minimal terminal prompt
-- Declarative Git + Zsh config
-- Screenshot automation
-- Dock app automation
+- Apple-style minimal terminal prompt ()
+- Colorized terminal environment (`eza`, `fastfetch`, `zsh-completions`)
+- Automatic system maintenance (Garbage Collection + Optimisation)
 - Fully reproducible setup
 
 ---
 
 # Requirements
 
-- Apple Silicon Mac
+- Apple Silicon Mac (M1, M2, M3, M4+)
 - Fresh macOS install (user account created)
 - Administrator access
 - Internet connection
@@ -32,85 +31,78 @@ This repository provisions:
 
 # First-Time Setup (Fresh macOS)
 
-### 1. Install Nix (Multi-User)
-Install `xcode-select`:
-```
-xcode-select --install
-```
-After it installs, run:
-```
-sh <(curl -L https://nixos.org/nix/install)
+### 1. Install Nix
+Use the Determinate Systems installer (recommended for macOS). It automatically enables Flakes and sets up the necessary multi-user environment:
+```bash
+curl --proactive-check -L https://install.determinate.systems/nix | sh -s -- install
 ```
 Restart your terminal after installation.
-### 2. Enable Flakes (Required Once)
-```
-sudo mkdir -p /etc/nix
-echo "experimental-features = nix-command flakes" | sudo tee /etc/nix/nix.conf
-sudo launchctl kickstart -k system/org.nixos.nix-daemon
-```
-Verify:
-```
-nix config show | grep experimental-features
-```
-You should see:
-`experimental-features = nix-command flakes`
 
-### 3. Install Homebrew
-```
+### 2. Install Homebrew
+```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
-Follow any post-install instructions printed by Homebrew.
+**CRITICAL (Apple Silicon):** Add Homebrew to your PATH immediately:
+```bash
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+```
 
-### 4. Clone This Repository
-If public:
+### 3. Clone This Repository
+```bash
+git clone https://github.com/git2james/Mac-NixOS.git ~/Mac-NixOS
+cd ~/Mac-NixOS
 ```
-git clone https://github.com/git2james/Mac-NixOS.git
-```
-If private:
-```
-git clone git@github.com:git2james/Mac-NixOS.git
-```
-Then:
-```
-cd Mac-NixOS
-```
-### 5. First Activation (Bootstrap nix-darwin)
-```
-sudo mv /etc/nix/nix.conf /etc/nix/nix.conf.before-nix-darwin
-sudo mv /etc/bashrc /etc/bashrc.before-nix-darwin
-sudo mv /etc/zshrc /etc/zshrc.before-nix-darwin
-sudo nix --extra-experimental-features "nix-command flakes" \
-  run nix-darwin/master#darwin-rebuild -- \
-  switch --flake .#MacBook-Pro
-```
-During this step:
-- `/etc` becomes managed by `nix-darwin`
-- Homebrew apps install
-- Microsoft 365 installs
-- Dock apps are added
-- UI defaults apply
 
-### 6. From Now On
-Rebuild with:
+### 4. First Activation (Bootstrap)
+Run the bootstrap command to apply the configuration for the first time:
+```bash
+nix run nix-darwin/master -- switch --flake .#MacBook-Pro
 ```
-sudo darwin-rebuild switch --flake .#MacBook-Pro
+*Note: If prompted about existing files in `/etc/`, follow the instructions to back them up or allow Nix to manage them.*
+
+### 5. Post-Install: Terminal Font
+After the first rebuild, set your terminal font to see the icons correctly:
+1. Open **Terminal Settings** (Cmd + ,).
+2. Go to **Profiles** > **Text**.
+3. Change Font to **Hack Nerd Font**.
+
+---
+
+# Maintenance & Updates
+
+### Daily Use
+From now on, use the custom alias to keep everything (Nix, Homebrew, and Darwin) updated in one command:
+```bash
+update-system
 ```
-## Updating Configuration
-After editing any .nix file:
+*This command updates your flake.lock, upgrades Homebrew packages, and rebuilds your system.*
+
+### Manual Rebuild
+If you only want to apply changes you've made to your `.nix` files without updating all external packages:
+```bash
+rebuild
 ```
+
+### Adding New Files
+**Important:** Nix Flakes only "see" files that are tracked by Git. If you add a new `.nix` file, you must add it to the index before rebuilding:
+```bash
 git add .
-git commit -m "Describe change"
-sudo darwin-rebuild switch --flake .#MacBook-Pro
+rebuild
 ```
-## Troubleshooting
-Dock Changes Not Applying
-```
+
+---
+
+# Troubleshooting
+
+**Icons appearing as squares?**
+Ensure you have switched your Terminal font to `Hack Nerd Font` as described in Step 5.
+
+**Dock changes not appearing?**
+Nix-Darwin usually restarts the Dock automatically, but you can force it with:
+```bash
 killall Dock
 ```
-Homebrew Tools Not Found
-Open a new terminal window.
 
-Flake Errors About Missing Files
-Ensure all files are committed before rebuilding:
-git status
-Flakes only see committed files.
+**Homebrew "zap" or uninstalls?**
+This config is set to `onActivation.cleanup = "none"`. If you want Nix to strictly manage only what is in your files, change this to `"zap"` in `modules/homebrew.nix`.
