@@ -31,9 +31,9 @@
 
       fc -R ~/.zsh_history
 
-      # Show neofetch only in interactive shells
+      # Show fastfetch only in interactive shells
       if [[ $- == *i* ]]; then
-        neofetch
+        fastfetch
       fi
 
       PROMPT=' %F{cyan}%~%f > '
@@ -56,6 +56,7 @@
       fgrep = "fgrep --color=auto";
       diff = "diff --color=auto";
       rebuild = "sudo darwin-rebuild switch --flake ~/Mac-NixOS#MacBook-Pro";
+      update-system = "pushd ~/Mac-NixOS && nix flake update && sudo darwin-rebuild switch --flake .#MacBook-Pro && popd";
     };
   };
 
@@ -75,7 +76,7 @@
   };
 
   home.packages = with pkgs; [
-    neofetch
+    fastfetch
     eza
     zsh-completions
   ];
