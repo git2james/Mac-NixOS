@@ -82,4 +82,5 @@ This project manages a macOS 26 Tahoe configuration using `nix-darwin` and `home
 ## Workspace Conventions
 - **Modular Structure:** Keep system-level UI, security, and package settings in the `modules/` directory.
 - **Home Manager:** Use `home.nix` for user-specific CLI tools, shell aliases, and git configuration.
+- **Context Maintenance:** Always keep `GEMINI.md` updated with the latest architectural changes, package additions, and operational procedures to ensure full context for future AI sessions.
 - **No Staging:** Do not stage or commit changes unless explicitly requested.
