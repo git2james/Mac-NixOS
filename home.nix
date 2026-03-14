@@ -64,7 +64,7 @@
       fgrep = "fgrep --color=auto";
       diff = "diff --color=auto";
       rebuild = "sudo darwin-rebuild switch --flake ~/Mac-NixOS#MacBook-Pro";
-      update-system = "pushd ~/Mac-NixOS && nix flake update && sudo darwin-rebuild switch --flake .#MacBook-Pro && popd";
+      update-system = "pushd ~/Mac-NixOS && nix flake update && brew update && brew upgrade && sudo darwin-rebuild switch --flake .#MacBook-Pro && popd";
     };
   };
 

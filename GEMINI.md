@@ -7,7 +7,7 @@ This project manages a macOS 26 Tahoe configuration using `nix-darwin` and `home
 - **Architecture:** `aarch64-darwin` (Apple Silicon)
 - **Primary User:** `James`
 - **Rebuild Command:** `sudo darwin-rebuild switch --flake .#MacBook-Pro`
-- **Update Command:** `update-system` (Alias for flake update + rebuild)
+- **Update Command:** `update-system` (Alias for flake update, brew update, brew upgrade, and rebuild)
 
 ## Configuration Mandates
 
@@ -75,7 +75,7 @@ This project manages a macOS 26 Tahoe configuration using `nix-darwin` and `home
       - `ls`: `eza` with icons and colors.
       - `ll`: Long list `eza`.
       - `tree`: Tree view `eza`.
-      - `update-system`: Automates `flake update` and `darwin-rebuild`.
+      - `update-system`: Automates `flake update`, `brew update`, `brew upgrade`, and `darwin-rebuild`.
       - `rebuild`: standard darwin-rebuild switch.
 - **Git:**
   - User: `James Joy` (`4472496+git2james@users.noreply.github.com`).
