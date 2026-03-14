@@ -16,6 +16,8 @@
 
   # Nix-Darwin manages /etc/zshrc, so we need to add the Nix paths manually 
   # since we've disabled native nix management to avoid conflicts with Determinate.
+  programs.zsh.enable = true;
+  programs.zsh.enableCompletion = true;
   programs.zsh.interactiveShellInit = ''
     if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
       . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
