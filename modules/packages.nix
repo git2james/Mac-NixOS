@@ -7,6 +7,7 @@
     fastfetch
     curl
     iperf3
+    eza
   ];
 
   fonts.packages = with pkgs; [
