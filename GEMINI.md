@@ -25,6 +25,7 @@ This project manages a macOS 26 Tahoe configuration using `nix-darwin` and `home
 ### Activation & Defaults
 - **Immediate Application:** Use `system.activationScripts.activateSettings` to trigger `/System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u`.
 - **Permissions:** This script must run as the primary user via `sudo -u ${config.system.primaryUser}` to correctly update user defaults.
+- **Zsh Management:** Always set `programs.zsh.enable = true` and `programs.zsh.enableCompletion = true` in the system configuration to ensure proper shell initialization and PATH management, even with `nix.enable = false`.
 
 ## Established Configuration Reference
 
@@ -33,6 +34,7 @@ This project manages a macOS 26 Tahoe configuration using `nix-darwin` and `home
 - **Touch ID:** Enabled for `sudo` in terminal (`security.pam.services.sudo_local.touchIdAuth`).
 - **Nix:** Managed by Determinate Systems daemon; `nix.enable = false` in config to avoid conflicts.
 - **Maintenance:** Automatic garbage collection and optimization handled by Determinate Systems.
+- **Shell Init:** Nix paths and system binaries are manually added to `programs.zsh.interactiveShellInit` and Home Manager's `programs.zsh.initContent` to ensure `fastfetch` and aliases work across all sessions.
 - **Screensaver:** Password required after 5 seconds.
 
 ### macOS UI Preferences (`modules/ui.nix`)

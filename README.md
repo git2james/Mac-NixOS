@@ -55,11 +55,16 @@ cd ~/Mac-NixOS
 ```
 
 ### 4. First Activation (Bootstrap)
-Run the bootstrap command to apply the configuration for the first time:
+Run the bootstrap command with `sudo` to apply the configuration for the first time:
 ```bash
-nix run nix-darwin/master -- switch --flake .#MacBook-Pro
+sudo nix run nix-darwin -- switch --flake .#MacBook-Pro
 ```
-*Note: If prompted about existing files in `/etc/`, follow the instructions to back them up or allow Nix to manage them.*
+*Note: If prompted about existing files in `/etc/` (like `zshrc` or `nix.conf`), rename them with the `.before-nix-darwin` suffix as requested.*
+
+**IMPORTANT:** After the first bootstrap, you MUST refresh your terminal session for your aliases and tools (like `fastfetch` and `update-system`) to be found:
+```bash
+source ~/.zshrc
+```
 
 ### 5. Post-Install: Terminal Font
 After the first rebuild, set your terminal font to see the icons correctly:
