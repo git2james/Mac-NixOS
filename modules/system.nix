@@ -19,9 +19,13 @@
   programs.zsh.enable = true;
   programs.zsh.enableCompletion = true;
   programs.zsh.interactiveShellInit = ''
+    # Load Nix environment
     if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
       . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
     fi
+
+    # Ensure system-wide Nix binaries are in the PATH
+    export PATH="/run/current-system/sw/bin:$PATH"
   '';
 
   # nix.settings.experimental-features = [

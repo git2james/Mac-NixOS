@@ -20,6 +20,9 @@
         . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
       fi
 
+      # Ensure system-wide Nix binaries are in the PATH
+      export PATH="/run/current-system/sw/bin:$PATH"
+
       # Color support
       export CLICOLOR=1
       export LSCOLORS="Gxfxcxdxbxegedabagacad"
