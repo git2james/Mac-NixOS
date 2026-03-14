@@ -31,8 +31,8 @@ This project manages a macOS 26 Tahoe configuration using `nix-darwin` and `home
 ### System & Security
 - **Hostname:** `MacBook-Pro`
 - **Touch ID:** Enabled for `sudo` in terminal (`security.pam.services.sudo_local.touchIdAuth`).
-- **Nix Features:** `nix-command`, `flakes` enabled; `allowUnfree = true`.
-- **Maintenance:** Automatic weekly garbage collection (Sundays at 3:15 AM) and store optimization enabled.
+- **Nix:** Managed by Determinate Systems daemon; `nix.enable = false` in config to avoid conflicts.
+- **Maintenance:** Automatic garbage collection and optimization handled by Determinate Systems.
 - **Screensaver:** Password required after 5 seconds.
 
 ### macOS UI Preferences (`modules/ui.nix`)

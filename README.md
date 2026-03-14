@@ -34,7 +34,7 @@ This repository provisions:
 ### 1. Install Nix
 Use the Determinate Systems installer (recommended for macOS). It automatically enables Flakes and sets up the necessary multi-user environment:
 ```bash
-curl --proactive-check -L https://install.determinate.systems/nix | sh -s -- install
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 ```
 Restart your terminal after installation.
 
