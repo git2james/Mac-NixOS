@@ -63,8 +63,8 @@
       egrep = "egrep --color=auto";
       fgrep = "fgrep --color=auto";
       diff = "diff --color=auto";
-      rebuild = "pushd ~/Mac-NixOS && git add -A && sudo darwin-rebuild switch --flake .#MacBook-Pro --option warn-dirty false && popd";
-      update-system = "pushd ~/Mac-NixOS && git add -A && nix flake update --commit-lock-file --option warn-dirty false && brew update && brew upgrade && sudo darwin-rebuild switch --flake .#MacBook-Pro --option warn-dirty false && git commit -am 'chore: system configuration update' || true && popd";
+      rebuild = "pushd ~/Mac-NixOS && git add -A && git commit -m 'chore: save configuration' || true && sudo darwin-rebuild switch --flake .#MacBook-Pro && popd";
+      update-system = "pushd ~/Mac-NixOS && git add -A && git commit -m 'chore: pre-update configuration' || true && nix flake update --commit-lock-file && brew update && brew upgrade && sudo darwin-rebuild switch --flake .#MacBook-Pro && popd";
     };
   };
 
