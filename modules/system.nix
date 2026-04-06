@@ -43,5 +43,7 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  documentation.enable = false;
+
   system.stateVersion = 5;
 }
