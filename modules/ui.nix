@@ -32,7 +32,7 @@
       show-recents = true;
       show-process-indicators = true;
       orientation = "bottom";
-      mru-spaces = true;
+      mru-spaces = false;
       expose-group-apps = true;
 
       wvous-br-corner = 10;

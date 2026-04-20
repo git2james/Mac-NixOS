@@ -47,6 +47,7 @@ This project manages a macOS 26 Tahoe configuration using `nix-darwin` and `home
   - Autohide enabled (0.0s delay, 0.1s modifier).
   - Tilesize: 48.
   - Show recents and process indicators enabled.
+  - Automatically rearrange Spaces based on recent use: Disabled (`mru-spaces = false`).
   - Hot corner (Bottom Right): Mission Control (`10`).
 - **Trackpad:**
   - Tap-to-click, right-click, and dragging enabled.
